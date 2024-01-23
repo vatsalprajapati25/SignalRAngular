@@ -29,4 +29,8 @@ export class ChatComponent {
   backToHome(){
     this.closeChatEmitter.emit();
   }
+
+  sendMessage(content : string) {
+    this.chatService.sendMessage(content);
+  }
 }

@@ -5,23 +5,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './pages/home/home.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@microsoft/signalr';
 import { HttpClientModule } from '@angular/common/http';
 import { ChatComponent } from './pages/chat/chat.component';
+import { ChatInputComponent } from './pages/chat-input/chat-input.component';
+import { MessagesComponent } from './pages/messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ChatComponent
+    ChatComponent,
+    ChatInputComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
