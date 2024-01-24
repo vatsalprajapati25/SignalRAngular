@@ -39,7 +39,6 @@ export class ChatService {
 
     this.signalRConnection.on("OpenPrivateChat", (newMessage: Message) => {
       this.personalMessages = [...this.personalMessages, newMessage];
-      console.log(this.personalMessages);
       
       this.personalChatStarted = true;
       const model = this.modelService.open(PersonalChatComponent);
@@ -51,10 +50,7 @@ export class ChatService {
     })
 
     this.signalRConnection.on("NewPrivateMessage", (newMessage: Message) => {
-      debugger
       this.personalMessages = [...this.personalMessages, newMessage]
-      console.log(this.personalMessages);
-      
     })
 
     this.signalRConnection.on("ClosePrivateChat", () => {

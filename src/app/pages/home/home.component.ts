@@ -36,7 +36,6 @@ export class HomeComponent {
           this.openChat = true;
           this.userForm.reset();
           this.submitted = false;
-          console.log(response);
         },
         error : (err) => {
           if(typeof(err.error) !== 'object'){

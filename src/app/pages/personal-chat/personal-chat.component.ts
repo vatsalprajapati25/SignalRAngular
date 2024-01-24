@@ -23,7 +23,6 @@ export class PersonalChatComponent {
   }
 
   sendMessage(content : string){
-    debugger
     this.chatService.sendPersonalMessage(this.toUser, content);
   }
 }
