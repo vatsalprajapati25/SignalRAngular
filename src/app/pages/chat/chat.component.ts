@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { eventListeners } from '@popperjs/core';
 import { ChatService } from 'src/services/chat.service';
+import { PersonalChatComponent } from '../personal-chat/personal-chat.component';
 
 @Component({
   selector: 'app-chat',
@@ -10,19 +12,15 @@ import { ChatService } from 'src/services/chat.service';
 export class ChatComponent {
   @Output() closeChatEmitter = new EventEmitter();
 
-  constructor(public chatService : ChatService) {
+  constructor(public chatService : ChatService, public modelService : NgbModal) {
     
   }
 
   ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
     this.chatService.stopChatConnection()
   }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.chatService.createChatConnection();
   }
 
@@ -32,5 +30,10 @@ export class ChatComponent {
 
   sendMessage(content : string) {
     this.chatService.sendMessage(content);
+  }
+
+  privateChat(toUser : string){
+    const model = this.modelService.open(PersonalChatComponent);
+    model.componentInstance.toUser = toUser;
   }
 }

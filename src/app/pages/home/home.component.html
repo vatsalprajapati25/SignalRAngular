@@ -2,18 +2,12 @@
     <app-chat (closeChatEmitter)="closeChat()"></app-chat>
 </ng-container>
 
-<ng-container *ngIf="openChat == false">
-    <div class="text-center">
-        <h1>
-            Let's connect and <span class="text-danger"> chat </span> with other <span class="text-info"> people </span>
-        </h1>
-    </div>
+<ng-container *ngIf="openChat == false">    
 
     <div class="d-flex justify-content-center mt-5">
         <div class="col-12 col-lg-5">
             <main class="form-signin">
                 <form class="p-3 border" [formGroup]="userForm" (ngSubmit)="submitForm()" autocomplete="off">
-                    <h3>Choose your name</h3>
                     <div class="form-floating mb-3">
                         <input type="text" formControlName="name" class="form-control" placeholder="Name"
                             [class.is-invalid]="submitted && userForm.get('name')?.errors">
@@ -23,7 +17,7 @@
                         <label for="name">Name</label>
                     </div>
                     <div class="d-grid mt-4 px-4">
-                        <button class="btn btn-warning" type="submit">Submit</button>
+                        <button class="btn btn-success" type="submit">Submit</button>
                     </div>
                 </form>
             </main>
