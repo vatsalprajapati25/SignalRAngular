@@ -14,7 +14,7 @@
                     <div class="col">
                         <div class="d-grid">
                             <button type="button" class="btn btn-success card-text btn-block" [disabled]="true" *ngIf="user == chatService.myName">{{user}}</button>
-                            <button type="button" class="btn btn-dark card-text btn-block" *ngIf="user != chatService.myName" (click)="privateChat(user)">{{user}}</button>
+                            <button type="button" class="btn btn-outline-dark card-text btn-block" *ngIf="user != chatService.myName" (click)="privateChat(user)">{{user}}</button>
                         </div>
                     </div>
                 </div>
