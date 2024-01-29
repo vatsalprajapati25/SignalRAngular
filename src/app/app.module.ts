@@ -12,6 +12,12 @@ import { ChatComponent } from './pages/chat/chat.component';
 import { ChatInputComponent } from './pages/chat-input/chat-input.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 import { PersonalChatComponent } from './pages/personal-chat/personal-chat.component';
+import { VideoCallComponent } from './pages/video-call/video-call.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MaterialModule } from './materal.module';
+import { CallinfoDialogComponent } from './pages/callinfo-dialog/callinfo-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +26,9 @@ import { PersonalChatComponent } from './pages/personal-chat/personal-chat.compo
     ChatComponent,
     ChatInputComponent,
     MessagesComponent,
-    PersonalChatComponent
+    PersonalChatComponent,
+    VideoCallComponent,
+    CallinfoDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +36,9 @@ import { PersonalChatComponent } from './pages/personal-chat/personal-chat.compo
     NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
