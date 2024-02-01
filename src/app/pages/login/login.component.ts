@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { CommonService } from 'src/app/common/service/common.service';
 import { SharedService } from 'src/app/common/service/shared.service';
 import { LoginService } from 'src/services/login/login.service';
@@ -16,7 +15,6 @@ export class LoginComponent {
   validationMsg: any;
   loginForm: any;
   ShowPassword: boolean = false;
-  labelConstant: any = {};
 
 
   ngOnInit(): void {
@@ -32,7 +30,6 @@ export class LoginComponent {
     private router: Router,
     private common: CommonService,
     private service: LoginService,
-    private toaster : ToastrService,
     private sharedService: SharedService,
     private callService : VideoCallService
   ) {

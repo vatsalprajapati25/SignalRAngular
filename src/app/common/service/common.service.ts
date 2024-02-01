@@ -127,98 +127,13 @@ export class CommonService {
     );
   }
 
-  // logout() {
-  //   this.modalService
-  //     .open(ConfirmLogoutComponent, {
-  //       ariaLabelledBy: 'modal-basic-title',
-  //       modalDialogClass: 'delete-popup common-popup-ui',
-  //       centered: true,
-  //     })
-  //     .result.then(
-  //       (result) => {
-  //         if (result == 'Logout click') {
-  //           this.doPost(this.api.url.account.logout, null).subscribe({
-  //             next: (response) => {
-  //               if (response.success) {
-  //                 localStorage.clear();
-  //                 this.router.navigate(['/login']);
-  //               }
-  //             },
-  //             error: (er) => {
-  //               console.error(er);
-  //             },
-  //           });
-  //         }
-  //       },
-  //       (reason) => {
-  //         console.log(reason);
-  //       }
-  //     );
-  // }
-
   showNotification(
     title: string,
     message: string,
     type: NotificationType,
     autoClose: boolean
   ) {
-    const from: string = 'top',
-      align = 'right';
-    let timeOutVal: number = 4000;
-    if (!autoClose) {
-      timeOutVal = 0;
-    }
     this.snackBar.open(message, 'Close');
-
-    switch (type) {
-      case 1:
-        this.toastr.info(message, title, {
-          timeOut: timeOutVal,
-          closeButton: true,
-          enableHtml: true,
-          positionClass: 'toast-' + from + '-' + align,
-          tapToDismiss: autoClose,
-        });
-        break;
-      case 2:
-        this.toastr.success(message, title, {
-          timeOut: timeOutVal,
-          closeButton: true,
-          enableHtml: true,
-          positionClass: 'toast-' + from + '-' + align,
-          tapToDismiss: autoClose,
-        });
-        break;
-      case 3:
-        this.toastr.warning(message, title, {
-          timeOut: timeOutVal,
-          closeButton: true,
-          enableHtml: true,
-          positionClass: 'toast-' + from + '-' + align,
-          tapToDismiss: autoClose,
-        });
-        break;
-      case 4:
-        this.toastr.error(message, title, {
-          timeOut: timeOutVal,
-          closeButton: true,
-          enableHtml: true,
-          positionClass: 'toast-' + from + '-' + align,
-          tapToDismiss: autoClose,
-        });
-        break;
-      case 5:
-        this.toastr.show(message, title, {
-          timeOut: timeOutVal,
-          closeButton: true,
-          enableHtml: true,
-          positionClass: 'toast-' + from + '-' + align,
-          tapToDismiss: autoClose,
-        });
-        break;
-      default:
-        break;
-    }
   }
 
   private handleError<T>(operation = 'operation') {

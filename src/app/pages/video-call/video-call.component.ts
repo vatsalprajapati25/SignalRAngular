@@ -2,7 +2,6 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable, filter } from 'rxjs';
 import { VideoCallService } from 'src/services/video-call.service';
-import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from 'src/services/login/login.service';
 
@@ -19,7 +18,6 @@ export class VideoCallComponent implements AfterViewInit {
 
   constructor(public dialog: MatDialog, 
     private callService: VideoCallService, 
-    private http: HttpClient, 
     private activatedroute: ActivatedRoute, 
     private service: LoginService) {
     this.isCallStarted$ = this.callService.isCallStarted$;

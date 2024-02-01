@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { eventListeners } from '@popperjs/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ChatService } from 'src/services/chat.service';
 import { PersonalChatComponent } from '../personal-chat/personal-chat.component';
 
