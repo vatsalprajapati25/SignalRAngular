@@ -1,0 +1,50 @@
+<div class="login_main">
+    <div class="login_inner">
+        <div class="top_sec">
+            <h2 class="login_title">Welcome</h2>
+        </div>
+        <div class="inner_form">
+            <form [formGroup]="loginForm" (ngSubmit)="authform.form.valid && submitform()" #authform="ngForm"
+                novalidate>
+                <div class="mb-4 position-relative">
+                    <label for="txtEmailInput" class="form-label">
+                        Email Address <span class="text-danger">*</span>
+                    </label>
+                    <input type="email" oninput="this.value = this.value.toLowerCase().replace(/^\s+/g, '')"
+                        class="form-control" id="txtEmailInput" formControlName="emailAddress" TrimValue
+                        maxlength="100" />
+                    <span class="text-danger validation" *ngIf="
+          authform.submitted &&
+          loginForm.controls.emailAddress.errors?.required
+        ">
+                        {{ validationMsg.emailRequired }}
+                    </span>
+                    <span class="text-danger validation" *ngIf="
+          authform.submitted &&
+          loginForm.controls.emailAddress.errors?.pattern
+        ">
+                        {{ validationMsg.invalidEmail }}
+                    </span>
+                </div>
+                <div class="mb-4 position-relative">
+                    <label for="txtPasswordInput" class="form-label">
+                        Password <span class="text-danger">*</span>
+                    </label>
+                    <div class="input-group">
+                        <input [type]="ShowPassword ? 'text' : 'password'" class="form-control" id="txtPasswordInput"
+                            formControlName="password" TrimValue oninput="this.value = this.value.replace(/^\s+/g, '')"
+                            maxlength="20" />
+                    </div>
+                    <span class="text-danger validation" *ngIf="
+          authform.submitted && loginForm.controls.password.errors?.required
+        ">
+                        {{ validationMsg.passwordRequired }}
+                    </span>
+                </div>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <button class="btn btn-primary" type="submit">Log In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

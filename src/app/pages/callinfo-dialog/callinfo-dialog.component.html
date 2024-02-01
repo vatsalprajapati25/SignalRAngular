@@ -1,10 +1,11 @@
 <h1 mat-dialog-title>Call Info</h1>
 <div mat-dialog-content>
-  <mat-form-field (click)="showCopiedSnackBar()">
-    <mat-label>{{ data.joinCall ? 'INSERT REMOTE ID' : 'CLICK TO COPY YOUR ID' }} {{data.peerId}}</mat-label>
+  <mat-form-field (click)="showCopiedSnackBar()" class="ele">
+    <mat-label (click)="copy(data.peerId)">{{ data.joinCall ? 'INSERT REMOTE ID' : 'CLICK TO COPY YOUR ID' }}
+      {{data.peerId}}</mat-label>
     <input [disabled]="!data.joinCall" matInput [(ngModel)]="data.peerId">
   </mat-form-field>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions >
   <button mat-raised-button [mat-dialog-close]="data.peerId">Ok</button>
 </div>

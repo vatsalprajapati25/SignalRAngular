@@ -1,3 +1,67 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary" *ngIf="isLogin">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+        <!-- Toggle button -->
+        <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Navbar brand -->
+            <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="15" alt="MDB Logo"
+                    loading="lazy" />
+            </a>
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" (click)="routes(1)">Call Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/chat" (click)="routes(2)">Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" (click)="logout()">Logout</a>
+                </li>
+            </ul>
+            <!-- Left links -->
+
+            <!-- Right content -->
+            <div class="d-flex align-items-center">
+                <span class="mr-5"></span>
+                <!-- You can customize the style as needed -->
+            </div>
+        </div>
+        <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+
 <div class="container mt-5" style="min-height: 500px;">
     <router-outlet></router-outlet>
+</div>
+
+<div class="loading-indicator" id="bootstrapSpinner">
+    <div class="d-flex justify-content-center">
+        <svg class="mx-auto d-block svgcontain" width="60" height="60" viewBox="0 0 60 60" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="loader_21">
+                <g id="loader_21_circle_1">
+                    <path class="loader_circle_1" id="Subtract" fill-rule="evenodd" clip-rule="evenodd"
+                        d="M49.4454 10.4598C50.4217 9.48349 52.0136 9.47722 52.9058 10.531C57.3314 15.758 60 22.52 60 29.9052C60 46.4738 46.5685 59.9052 30 59.9052C13.4315 59.9052 0 46.4738 0 29.9052C0 14.1783 12.1016 1.27788 27.5008 0.00786403C28.8768 -0.105622 30 1.02453 30 2.40524V2.40524C30 3.78595 28.8775 4.89211 27.5035 5.02833C14.8685 6.28102 5 16.9407 5 29.9052C5 43.7124 16.1929 54.9052 30 54.9052C43.8071 54.9052 55 43.7124 55 29.9052C55 23.9006 52.883 18.3904 49.3548 14.0802C48.4802 13.0118 48.4691 11.4361 49.4454 10.4598V10.4598Z"
+                        fill="#5598FF" />
+                </g>
+                <g id="loader_21_circle_2">
+                    <path class="loader_circle_2" id="Subtract_2" fill-rule="evenodd" clip-rule="evenodd"
+                        d="M42.3744 17.5309C43.3507 16.5546 44.948 16.5462 45.7957 17.636C48.4307 21.0236 50 25.2812 50 29.9052C50 40.9509 41.0457 49.9052 30 49.9052C18.9543 49.9052 10 40.9509 10 29.9052C10 19.7045 17.6368 11.2874 27.505 10.0594C28.8751 9.88885 30 11.0245 30 12.4052V12.4052C30 13.786 28.8723 14.8834 27.5105 15.1109C20.411 16.2968 15 22.4691 15 29.9052C15 38.1895 21.7157 44.9052 30 44.9052C38.2843 44.9052 45 38.1895 45 29.9052C45 26.6615 43.9704 23.6583 42.2202 21.2045C41.4184 20.0804 41.3981 18.5072 42.3744 17.5309V17.5309Z"
+                        fill="#5598FF" />
+                </g>
+            </g>
+        </svg>
+    </div>
 </div>

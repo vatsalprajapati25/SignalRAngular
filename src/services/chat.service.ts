@@ -26,6 +26,9 @@ export class ChatService {
 
   createChatConnection() {
     this.signalRConnection = new HubConnectionBuilder().withUrl(`${environment.apiUrl}ChatHub`).withAutomaticReconnect().build();
+    if(this.signalRConnection.connectionId?.toString() != null) {
+      localStorage.setItem("connectionId", this.signalRConnection.connectionId?.toString())
+    }
     this.signalRConnection.start().catch(error => {
       console.log(error);
     })

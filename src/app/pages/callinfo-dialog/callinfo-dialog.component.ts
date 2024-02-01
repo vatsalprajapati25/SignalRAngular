@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {Clipboard} from '@angular/cdk/clipboard';
 
 @Component({
   selector: 'app-callinfo-dialog',
@@ -11,7 +12,8 @@ export class CallinfoDialogComponent {
   constructor(
     public dialogRef: MatDialogRef<CallinfoDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private clipboard: Clipboard
   ) { }
 
   public showCopiedSnackBar() {
@@ -20,6 +22,10 @@ export class CallinfoDialogComponent {
       horizontalPosition: 'center',
       verticalPosition: 'top'
     });
+  }
+
+  copy(peerId : any){
+    this.clipboard.copy(peerId);
   }
 }
 
