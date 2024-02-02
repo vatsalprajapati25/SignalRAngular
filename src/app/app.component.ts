@@ -9,10 +9,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'SignalR';
   isLogin : boolean = false;
-
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     if(localStorage.getItem("authToken") != null && localStorage.getItem("authToken") != "" && localStorage.getItem("authToken") != undefined){
       this.isLogin = true;
     }
@@ -21,9 +18,7 @@ export class AppComponent {
     }
   }
 
-  constructor(private route : Router) {
-    
-  }
+  constructor(private route : Router) { }
 
   logout(){
     localStorage.clear();

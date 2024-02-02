@@ -10,11 +10,11 @@
         <div class="card border-secondary mb-3">
             <div class="card-header h3 text-muted text-center">Users</div>
             <div class="card-body" style="min-height: 555px;">
-                <div class="row mt-1" *ngFor="let user of chatService.onlineUsers">
+                <div class="row mt-1" *ngFor="let user of users">
                     <div class="col">
                         <div class="d-grid">
-                            <button type="button" class="btn btn-success card-text btn-block" [disabled]="true" *ngIf="user == chatService.myName">{{user}}</button>
-                            <button type="button" class="btn btn-outline-dark card-text btn-block" *ngIf="user != chatService.myName" (click)="privateChat(user)">{{user}}</button>
+                            <button type="button" class="btn btn-success card-text btn-block" [disabled]="true" *ngIf="user.emailID == loginEmail">{{user.userName}}</button>
+                            <button type="button" class="btn btn-outline-dark card-text btn-block" *ngIf="user.emailID != loginEmail" (click)="privateChat(user)">{{user.userName}}</button>
                         </div>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
     </div>
     <div class="col-lg-9">
         <div class="card border-secondary">
-            <div class="card-header h3 text-muted text-center">Messages</div>
+            <div class="card-header h3 text-muted text-center">Group Messages</div>
             <div class="card-body" style="min-height: 500px;">
                 <app-messages [messages]="chatService.messages"></app-messages>
             </div>

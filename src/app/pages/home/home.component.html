@@ -8,11 +8,7 @@
             <main class="form-signin">
                 <form class="p-3 border" [formGroup]="userForm" (ngSubmit)="submitForm()" autocomplete="off">
                     <div class="form-floating mb-3">
-                        <input type="text" formControlName="name" class="form-control" placeholder="Name"
-                            [class.is-invalid]="submitted && userForm.get('name')?.errors">
-                        <span class="text-danger" *ngIf="submitted && userForm.get('name')?.hasError('required')">
-                            Please select name
-                        </span>
+                        <input type="text" formControlName="name" class="form-control" placeholder="Name"/>
                         <label for="name">Name</label>
                     </div>
                     <div class="d-grid mt-4 px-4">

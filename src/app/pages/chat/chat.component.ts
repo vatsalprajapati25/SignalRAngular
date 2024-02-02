@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ChatService } from 'src/services/chat.service';
 import { PersonalChatComponent } from '../personal-chat/personal-chat.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -10,9 +11,9 @@ import { PersonalChatComponent } from '../personal-chat/personal-chat.component'
 })
 export class ChatComponent {
   @Output() closeChatEmitter = new EventEmitter();
-
-  constructor(public chatService : ChatService, public modelService : NgbModal) {
-    
+  users : any;
+  loginEmail = localStorage.getItem("emailId")?.toString();
+  constructor(public chatService : ChatService, public modelService : NgbModal, private route : Router) {
   }
 
   ngOnDestroy(): void {
@@ -20,11 +21,14 @@ export class ChatComponent {
   }
 
   ngOnInit(): void {
-    this.chatService.createChatConnection();
+    setTimeout(() => {
+      this.users = this.chatService.onlineUsers;
+    }, 1000);
   }
 
   backToHome(){
     this.closeChatEmitter.emit();
+    this.route.navigate(["/call-dashboard"]);
   }
 
   sendMessage(content : string) {
